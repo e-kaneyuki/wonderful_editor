@@ -45,6 +45,5 @@ module WonderfulEditor
     end
 
     config.api_only = true
-
   end
 end

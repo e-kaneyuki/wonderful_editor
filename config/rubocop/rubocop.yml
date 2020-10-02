@@ -6,6 +6,7 @@ AllCops:
     - "node_modules/**/*" # rubocop config/default.yml
     - "vendor/**/*" # rubocop config/default.yml
     - "db/schema.rb"
+    - "bin/bundle"
 
 #################### Layout ################################
 
@@ -309,7 +310,8 @@ Style/OrAssignment:
 # 正規表現にマッチさせた時の特殊変数の置き換えは Regex.last_match ではなく
 # 名前付きキャプチャを使って参照したいので auto-correct しない
 Style/PerlBackrefs:
-  AutoCorrect: false
+  # AutoCorrect: false
+  AutoCorrect: true
 
 # Hash#has_key? の方が key? よりも意味が通る
 Style/PreferredHashMethods:
