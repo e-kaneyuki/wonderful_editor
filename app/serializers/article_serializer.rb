@@ -17,10 +17,9 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-FactoryBot.define do
-  factory :article do
-    title { Faker::Lorem.word }
-    body { Faker::Lorem.sentence }
-    user
-  end
+class Api::V1::ArticleSerializer < ActiveModel::Serializer
+  # articleのindex以外のAPI処理をいれる場所 ※serializerは簡便にJson形式で表示する為のディレクトリということは覚えておく
+  attributes :id, :title, :updated_at
+  belongs_to :user, serializer: Api::V1::UserSerializer
+  # has_many :comments, :article_likes
 end

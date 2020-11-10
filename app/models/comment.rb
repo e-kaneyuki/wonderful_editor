@@ -19,7 +19,8 @@
 #  fk_rails_...  (article_id => articles.id)
 #  fk_rails_...  (user_id => users.id)
 #
-class Comment < ApplicationRecord
+# ##########################################
+class AComment < ApplicationRecord
   belongs_to :user
   belongs_to :article
 end

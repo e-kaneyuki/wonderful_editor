@@ -17,8 +17,9 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
+# # ##########################################
 class Article < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :comments, dependent: :destroy
   has_many :article_likes, dependent: :destroy
 
