@@ -6,7 +6,7 @@ ruby "2.7.2"
 gem "active_model_serializers", "~> 0.10.0"  # 追加
 gem "bootsnap", ">= 1.4.2", require: false
 gem "devise_token_auth" # 追加
-gem "pg"
+gem "pg", "1.2.3"
 gem "puma", "~> 4.1"
 gem "rails", "~> 6.0.3", ">= 6.0.3.2"
 gem "turbolinks", "~> 5"
