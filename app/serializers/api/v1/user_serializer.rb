@@ -30,5 +30,5 @@
 #
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :name
-  #ArticlePreviewSerializerの設定でemail削除した(一時的)
+  # ArticlePreviewSerializerの設定でemail削除した(一時的)
 end
