@@ -28,6 +28,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
-class Api::V1::UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email
+class UserSerializer < ActiveModel::Serializer
+  attributes :id, :name
+  #ArticlePreviewSerializerの設定でemail削除した(一時的)
 end

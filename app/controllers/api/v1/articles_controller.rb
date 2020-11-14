@@ -11,13 +11,13 @@ module Api::V1
       # Usersテーブルに対し、articleテーブルの関係はBelongs_toなので、
       # まずはUserテーブルの入力から進めなければならなかった(user_idが必要になるとか)。
       # # ////////////#
-      # binding.pry
+      # bindisng.pry
       # # ArtilePreviewsSerializer の表示方法はserializerを採用
       # renderって何？とりあえず今回は出力のパターンという理解で進める
       # 例えば＠articles(インスタンス変数)はjson形式で出力,
       # またArticlePreviewSerializerの内容は
       # each_serializer(serializerで出力したいデータが複数の場合はeach_serializer)で出力
-      render json: @articles, each_serializer: Api::V1::ArticlePreviewSerializer
+      render json: @articles, each_serializer: ArticlePreviewSerializer
       # 記事が新しい順に並び替えないといけない
       # binding.pry
     end

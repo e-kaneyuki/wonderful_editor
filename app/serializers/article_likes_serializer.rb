@@ -1,3 +1,3 @@
-class Api::V1::ArticleLikesSerializer < ActiveModel::Serializer
+class ArticleLikesSerializer < ActiveModel::Serializer
   attributes :id
 end

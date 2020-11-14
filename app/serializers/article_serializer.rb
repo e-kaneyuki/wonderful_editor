@@ -17,9 +17,9 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class Api::V1::ArticleSerializer < ActiveModel::Serializer
+class ArticleSerializer < ActiveModel::Serializer
   # articleのindex以外のAPI処理をいれる場所 ※serializerは簡便にJson形式で表示する為のディレクトリということは覚えておく
   attributes :id, :title, :updated_at
-  belongs_to :user, serializer: Api::V1::UserSerializer
+  belongs_to :user, serializer: UserSerializer
   # has_many :comments, :article_likes
 end
