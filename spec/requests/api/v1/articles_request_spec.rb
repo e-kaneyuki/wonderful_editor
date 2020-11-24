@@ -39,20 +39,21 @@ RSpec.describe "Api::V1::Articles", type: :request do
     # end
     # before {FactoryBot.build_list(:article, 5)}
     # binding.pry
-    it "記事が更新順に並んでいるテストにするはずなのだがとりあえず置いておく" do
-      subject
-      # expect(article).to eq{Article.order("updated_at")}
-      # it "記事が更新順に並んでいる" do
-      #   article = build_list(:article, 10)
-      #   # article = FactoryBot.build(:article)
-      #   #article1~3を作り、それをupdated_at順に並べ変えたい
-      #   #並べ変えた結果が更新順でtrueになれば良いな →それをecpectで表したい
-      #   expect(article.order).to eq article.order
 
-      res = JSON.parse(response.body)
-      # expect(res).to be_valid
-      expect(res[0].keys).to eq ["id", "title", "updated_at", "user"]
-      # binding.pry
-    end
+    ################ it "記事が更新順に並んでいるテストにするはずなのだがとりあえず置いておく" do  ##############################
+    #   subject
+    #   # expect(article).to eq{Article.order("updated_at")}
+    #   # it "記事が更新順に並んでいる" do
+    #   #   article = build_list(:article, 10)
+    #   #   # article = FactoryBot.build(:article)
+    #   #   #article1~3を作り、それをupdated_at順に並べ変えたい
+    #   #   #並べ変えた結果が更新順でtrueになれば良いな →それをecpectで表したい
+    #   #   expect(article.order).to eq article.order
+
+    #   res = JSON.parse(response.body)
+    #   # expect(res).to be_valid
+    #   expect(res[0].keys).to eq ["id", "title", "updated_at", "user"]
+    #   # binding.pry
+    # end
   end
 end
