@@ -43,6 +43,7 @@ RSpec.describe "Articles", type: :model do
       end
       # binding.pry
     end
+
     context "タイトルが記載されていない場合" do
       it "記事一覧に表示されない" do
         article = Article.new(body: "foo")
@@ -53,7 +54,7 @@ RSpec.describe "Articles", type: :model do
 
     context "タイトルと記事が記載されていない" do
       it "記事一覧に表示される" do
-        article = Article.new()
+        article = Article.new
         expect(article).to be_invalid
         expect(article.errors.details[:title][0][:error]).to eq :blank
         # binding.pry

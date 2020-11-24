@@ -19,9 +19,9 @@
 #
 FactoryBot.define do
   factory :article do
-    sequence(:title) { |n| "#{n}_#{Faker::Lorem.word}" }
-    sequence(:body) { |n| "#{n}_#{Faker::Lorem.sentence}" }
-    sequence(:updated_at) { |n| "#{n}_#{Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long)}" }
+    sequence(:title) {|n| "#{n}_#{Faker::Lorem.word}" }
+    sequence(:body) {|n| "#{n}_#{Faker::Lorem.sentence}" }
+    sequence(:updated_at) {|n| "#{n}_#{Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long)}" }
     user
   end
 end
