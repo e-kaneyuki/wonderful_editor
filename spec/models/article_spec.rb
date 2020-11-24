@@ -22,26 +22,41 @@ require "rails_helper"
 # RSpec.describe Article, type: :model do
 #   pending "add some examples to (or delete) #{__FILE__}"
 # end
-RSpec.describe "Api::V1::Articles", type: :model do
-  describe "GET /api/v1/articles" do
+RSpec.describe "Articles", type: :model do
+  # before do
+  #   @article = article
+  # end
+
+  describe "GET /articles" do
+    # before do
+    #   @article = article
+    # end
+    # binding.pry
+    ######################## 正常系 ###################################
     context "タイトルが記載されている場合" do
-      # binding.pry
       it "記事一覧に表示される" do
-        article = Article.new(title: "きんちゃん、きんきん", body: "キンキンに冷えたきんちゃんはキンキンだ！！")
+        article = Article.new(title: "foo", body: "foo")
+        # article = Article.new
         expect(article).to be_valid
         # expect("GET/articles").to be_valid
+        # binding.pry
       end
+      # binding.pry
     end
-
     context "タイトルが記載されていない場合" do
       it "記事一覧に表示されない" do
-        article = Article.new(body: "キンキンに冷えたきんちゃんはキンキンだ！！")
+        article = Article.new(body: "foo")
         expect(article).to be_invalid
+        expect(article.errors.details[:title][0][:error]).to eq :blank
       end
     end
 
-    context "タイトルが重複している場合" do
+    context "タイトルと記事が記載されていない" do
       it "記事一覧に表示される" do
+        article = Article.new()
+        expect(article).to be_invalid
+        expect(article.errors.details[:title][0][:error]).to eq :blank
+        # binding.pry
       end
     end
   end
