@@ -19,7 +19,7 @@
 #
 class ArticleSerializer < ActiveModel::Serializer
   # articleのindex以外のAPI処理をいれる場所 ※serializerは簡便にJson形式で表示する為のディレクトリということは覚えておく
-  attributes :id, :title, :updated_at
+  attributes :id, :title, :updated_at, :body
   belongs_to :user, serializer: UserSerializer
   # has_many :comments, :article_likes
 end
