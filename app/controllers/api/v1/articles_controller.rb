@@ -21,5 +21,13 @@ module Api::V1
       # 記事が新しい順に並び替えないといけない
       # binding.pry
     end
+
+    ####################### show メソッド start ##########################
+    def show
+      # binding.pry
+      @articles = Article.find(params[:id])
+      render json: @articles, each_serializer: ArticleSerializer
+    end
+    ####################### show メソッド end   ##########################
   end
 end
