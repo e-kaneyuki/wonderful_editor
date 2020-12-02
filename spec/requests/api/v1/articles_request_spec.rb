@@ -48,7 +48,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
       let(:article) { create(:article) }
       let(:article_id) { article.id }
 
-      fit "指定された記事が表示される" do
+      it "指定された記事が表示される" do
         subject
         res = JSON.parse(response.body)
         # binding.pry
