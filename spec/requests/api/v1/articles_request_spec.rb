@@ -32,28 +32,39 @@ RSpec.describe "Api::V1::Articles", type: :request do
         # binding.pry
       end
     end
-
-    # let!(:article) do
-    #   FactoryBot.build_list(:article, 5)
-    #   binding.pry
-    # end
-    # before {FactoryBot.build_list(:article, 5)}
-    # binding.pry
-
-    ################ it "記事が更新順に並んでいるテストにするはずなのだがとりあえず置いておく" do  ##############################
-    #   subject
-    #   # expect(article).to eq{Article.order("updated_at")}
-    #   # it "記事が更新順に並んでいる" do
-    #   #   article = build_list(:article, 10)
-    #   #   # article = FactoryBot.build(:article)
-    #   #   #article1~3を作り、それをupdated_at順に並べ変えたい
-    #   #   #並べ変えた結果が更新順でtrueになれば良いな →それをecpectで表したい
-    #   #   expect(article.order).to eq article.order
-
-    #   res = JSON.parse(response.body)
-    #   # expect(res).to be_valid
-    #   expect(res[0].keys).to eq ["id", "title", "updated_at", "user"]
-    #   # binding.pry
-    # end
   end
+  ########################## show  start ################################
+
+  describe "GET /show" do
+    subject { get(api_v1_article_path(article_id)) }
+
+    context "選択されたレコードに記事が存在する場合" do
+      let(:article) { create(:article) }
+      let(:article_id) { article.id }
+
+      it "指定された記事が表示される" do
+        subject
+        res = JSON.parse(response.body)
+        # binding.pry
+        expect(response).to have_http_status(:ok)
+
+        expect(res["title"]).to eq article.title
+        # binding.pry
+      end
+    end
+
+    context "選択されたレコードに記事が存在しない場合" do
+      let(:article) { create(:article) }
+      let(:article_id) { 10000 }
+      it "指定された記事が表示されない" do
+        # binding.pry
+        # res = JSON.parse(response.body)
+        # binding.pry
+
+        expect { subject }.to raise_error ActiveRecord::RecordNotFound
+        # binding.pry
+      end
+    end
+  end
+  ########################## show  end ################################
 end
