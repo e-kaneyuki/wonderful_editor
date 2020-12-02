@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Api::V1::Articles", type: :request do
+  ########################## index  start ##############################
   describe "GET /index" do
     # binding.pry
     subject { get(api_v1_articles_path) }
@@ -33,8 +34,9 @@ RSpec.describe "Api::V1::Articles", type: :request do
       end
     end
   end
-  ########################## show  start ################################
+  ########################## index  end ################################
 
+  ########################## show  start ################################
   describe "GET /show" do
     subject { get(api_v1_article_path(article_id)) }
 
@@ -49,6 +51,8 @@ RSpec.describe "Api::V1::Articles", type: :request do
         expect(response).to have_http_status(:ok)
 
         expect(res["title"]).to eq article.title
+        expect(res["body"]).to eq article.body
+        expect(res["user"]["id"]).to eq article.user.id
         # binding.pry
       end
     end
@@ -66,5 +70,5 @@ RSpec.describe "Api::V1::Articles", type: :request do
       end
     end
   end
-  ########################## show  end ################################
+  ########################## show  end ##################################
 end
