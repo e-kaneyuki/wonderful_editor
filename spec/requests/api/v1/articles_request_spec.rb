@@ -1,8 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "Api::V1::Articles", type: :request do
-
-
   ########################## index  start ##############################
   describe "GET /index" do
     # binding.pry
@@ -37,8 +35,6 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
   end
   ########################## index  end ################################
-
-
 
   ########################## show  start ################################
   describe "GET /show" do
@@ -75,6 +71,4 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
   end
   ########################## show  end ##################################
-
-
 end
