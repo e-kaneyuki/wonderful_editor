@@ -1,5 +1,6 @@
 module Api::V1
   class ArticlesController < BaseApiController
+    skip_before_action :verify_authenticity_token
     def index
       # binding.pry
       # 記事全てを表示する
@@ -29,5 +30,25 @@ module Api::V1
       render json: @articles, each_serializer: ArticleSerializer
     end
     ####################### show メソッド end   ##########################
+
+    ####################### create メソッド start ##########################
+    def create
+      # binding.pry
+
+      @article = current_user.articles.create!(article_params)
+      # let(:crrent_user){ articles.create!(article_params) }
+      # binding.pry
+
+      render json: @article
+    end
+    ####################### create メソッド end   ##########################
+
+    # ##############################private ####################################
+    private
+
+      def article_params
+        # binding.pry
+        params.require(:article).permit(:title, :body)
+      end
   end
 end
