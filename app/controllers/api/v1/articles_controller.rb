@@ -44,6 +44,7 @@ module Api::V1
 
       render json: @article, each_serializer: ArticleSerializer
     end
+
     def destroy
       @article = Article.find(params[:id])
       @article.delete
