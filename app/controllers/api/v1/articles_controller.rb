@@ -23,27 +23,21 @@ module Api::V1
       # binding.pry
     end
 
-    ####################### show メソッド start ##########################
     def show
       # binding.pry
       @articles = Article.find(params[:id])
       render json: @articles, each_serializer: ArticleSerializer
     end
-    ####################### show メソッド end   ##########################
 
-    ####################### create メソッド start ##########################
     def create
       # binding.pry
 
       @article = current_user.articles.create!(article_params)
       # let(:crrent_user){ articles.create!(article_params) }
-      # binding.pry
 
       render json: @article
     end
-    ####################### create メソッド end   ##########################
 
-    # ##############################private ####################################
     private
 
       def article_params
