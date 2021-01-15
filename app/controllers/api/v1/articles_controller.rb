@@ -35,7 +35,14 @@ module Api::V1
       @article = current_user.articles.create!(article_params)
       # let(:crrent_user){ articles.create!(article_params) }
 
-      render json: @article
+      render json: @article, each_serializer: ArticleSerializer
+    end
+
+    def update
+      @article = Article.find(params[:id])
+      @article.update!(article_params)
+
+      render json: @article, each_serializer: ArticleSerializer
     end
 
     private
