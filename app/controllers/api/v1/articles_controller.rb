@@ -39,8 +39,8 @@ module Api::V1
     end
 
     def update
-      @article = Article.find(params[:id])  # ①インスタンス変数にセット
-      @article.update(article_params)
+      @article = Article.find(params[:id])
+      @article.update!(article_params)
 
       render json: @article, each_serializer: ArticleSerializer
     end
