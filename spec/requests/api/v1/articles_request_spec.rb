@@ -73,36 +73,27 @@ RSpec.describe "Api::V1::Articles", type: :request do
   ########################## show  end ##################################
 
   ########################## create  start ##################################
-  describe "POST /create" do
-    subject { post(api_v1_articles_path, params: params) }
+  # describe "POST /articles" do
+  #   subject { post(api_v1_articles_path, params: params) }
 
-    context "@articleが正常に機能する" do
-      # binding.pry
-      let(:params) { { article: FactoryBot.attributes_for(:article) } }
+  #   let(:params) { { article: attributes_for(:article) } }
+  #   let(:current_user) { create(:user) }
 
-      it "記事が作成される" do
-        subject
+  #   let(:my_instance) { instance_double(Api::V1::BaseApiController) }
 
-        expect(subject).to change { Article.count }.by(1)
-      end
-    end
+  #   before do
+  #     allow(Api::V1::BaseApiController).to receive(:new).and_return(my_instance)
+  #     allow(my_instance).to receive(:current_user).and_return(current_user)
+  #   end
+  #   # before { allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user) }
 
-    context "article_paramsの制限が通っている" do
-      it "title,bodyのみ表示される" do
-        # expect(target).to ___  ____
-      end
-    end
-
-    context "@articleが正常に機能しない時" do
-      it "記事が作成されない" do
-        # expect(target).to ___  ____
-      end
-    end
-
-    context "article_paramsの制限が通っていない" do
-      it "title,body以外も表示される" do
-        # expect(target).to ___  ____
-      end
-    end
-  end
+  #   it "記事のレコードが作成できる" do
+  #     expect { subject }.to change { Article.where(user_id: current_user.id).count }.by(1)
+  #     res = JSON.parse(response.body)
+  #     expect(res["title"]).to eq params[:article][:title]
+  #     expect(res["body"]).to eq params[:article][:body]
+  #     expect(response).to have_http_status(:ok)
+  #   end
+  # end
+  ########################## create  end ##################################
 end
