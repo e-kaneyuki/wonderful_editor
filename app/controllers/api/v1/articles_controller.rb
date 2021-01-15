@@ -34,12 +34,9 @@ module Api::V1
 
       @article = current_user.articles.create!(article_params)
       # let(:crrent_user){ articles.create!(article_params) }
-      binding.pry
 
       render json: @article
     end
-
-
 
     private
 
@@ -47,6 +44,5 @@ module Api::V1
         # binding.pry
         params.require(:article).permit(:title, :body)
       end
-
   end
 end
