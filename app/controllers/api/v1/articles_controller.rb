@@ -24,17 +24,12 @@ module Api::V1
     end
 
     def show
-      # binding.pry
       @articles = Article.find(params[:id])
       render json: @articles, each_serializer: ArticleSerializer
     end
 
     def create
-      # binding.pry
-
       @article = current_user.articles.create!(article_params)
-      # let(:crrent_user){ articles.create!(article_params) }
-
       render json: @article, each_serializer: ArticleSerializer
     end
 
