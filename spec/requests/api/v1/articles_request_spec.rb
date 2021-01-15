@@ -71,4 +71,38 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
   end
   ########################## show  end ##################################
+
+  ########################## create  start ##################################
+  describe "POST /create" do
+    subject { post(api_v1_articles_path, params: params) }
+
+    context "@articleが正常に機能する" do
+      # binding.pry
+      let(:params) { { article: FactoryBot.attributes_for(:article) } }
+
+      it "記事が作成される" do
+        subject
+
+        expect(subject).to change { Article.count }.by(1)
+      end
+    end
+
+    context "article_paramsの制限が通っている" do
+      it "title,bodyのみ表示される" do
+        # expect(target).to ___  ____
+      end
+    end
+
+    context "@articleが正常に機能しない時" do
+      it "記事が作成されない" do
+        # expect(target).to ___  ____
+      end
+    end
+
+    context "article_paramsの制限が通っていない" do
+      it "title,body以外も表示される" do
+        # expect(target).to ___  ____
+      end
+    end
+  end
 end
