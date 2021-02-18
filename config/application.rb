@@ -30,6 +30,7 @@ module WonderfulEditor
     # the framework and any gems in your application.
 
     # Don't generate system test files.
+    config.middleware.use ActionDispatch::Flash
     config.generators.system_tests = nil
     config.generators do |g|
       g.template_engine false
