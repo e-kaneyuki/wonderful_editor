@@ -1,7 +1,11 @@
 class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
-  namespace :api do
-    namespace :v1 do
-      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        registrations: 'api/auth/registrations'
-    }
+  private
+
+  def sign_up_params
+    params.permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def account_update_params
+    params.permit(:name, :email)
+  end
 end
