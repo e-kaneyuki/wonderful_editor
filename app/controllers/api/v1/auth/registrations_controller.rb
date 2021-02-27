@@ -1,4 +1,7 @@
 class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
+  def touroku
+
+  end
   private
 
   def sign_up_params
